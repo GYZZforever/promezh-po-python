@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить партнера</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; padding: 20px; }
+        form { max-width: 400px; background: #F4E8D3; padding: 20px; border-radius: 8px; }
+        input, select { width: 100%; padding: 8px; margin: 10px 0; box-sizing: border-box; }
+        button { background-color: #67BA80; color: white; border: none; padding: 10px; cursor: pointer; width: 100%; }
+    </style>
+</head>
+<body>
+    <h1>Добавить нового партнера</h1>
+    <form method="post">
+        <label>Наименование:</label>
+        <input type="text" name="name" required>
+        
+        <label>Тип:</label>
+        <select name="type_id">
+            <option value="1">ЗАО</option>
+            <option value="2">ООО</option>
+            <option value="4">ИП</option>
+        </select>
+
+        <label>ФИО директора:</label>
+        <input type="text" name="director">
+
+        <label>Телефон:</label>
+        <input type="text" name="phone">
+
+        <label>Рейтинг:</label>
+        <input type="number" name="rating" value="0">
+
+        <button type="submit">Сохранить партнера</button>
+    </form>
+    <br>
+    <a href="/">Назад к списку</a>
+</body>
+</html>

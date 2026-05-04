@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мастер пол - Партнеры</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #FFFFFF; color: #333; }
+        .header { background-color: #F4E8D3; padding: 20px; text-align: center; }
+        .partner-card { 
+            border: 2px solid #67BA80; 
+            margin: 10px; padding: 15px; 
+            border-radius: 8px; 
+            display: inline-block; width: 300px; 
+            vertical-align: top;
+        }
+        .discount { float: right; font-weight: bold; color: #67BA80; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Список партнеров</h1>
+        <a href="/add" style="display:inline-block; margin-bottom:20px; padding:10px; background:#67BA80; color:white; text-decoration:none; border-radius:5px;">+ Добавить партнера</a>
+    </div>
+    <div id="content">
+        {% for partner in partners %}
+        <div class="partner-card">
+            <div class="discount">10%</div>
+            <h3>{{ partner['type_name'] }} | {{ partner['name'] }}</h3>
+            <p>Директор: {{ partner['director_fio'] }}</p>
+            <p>Телефон: {{ partner['phone'] }}</p>
+            <p>Рейтинг: {{ partner['rating'] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div style="margin-top: 20px; text-align: center;">
+    {% if page > 1 %}
+        <a href="{{ url_for('index', page=page-1) }}" style="color: #67BA80; margin-right: 10px;">&lt; Назад</a>
+    {% endif %}
+    
+    <span>Страница {{ page }} из {{ total_pages }}</span>
+
+    {% if page < total_pages %}
+        <a href="{{ url_for('index', page=page+1) }}" style="color: #67BA80; margin-left: 10px;">Вперед &gt;</a>
+    {% endif %}
+</div>
+
+</body>
+</html>
